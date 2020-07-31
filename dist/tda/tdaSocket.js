@@ -43,11 +43,8 @@ var CoinbaseSocket = /** @class */ (function () {
                 case "ticker":
                     //this.cryptoTick(tick);
                     break;
-                case "hearbeat":
-                    //this.cryptoTick(tick);
-                    break;
                 default:
-                    //console.log(tick)
+                    console.log(tick);
                     break;
             }
         });
@@ -85,4 +82,4 @@ var CoinbaseSocket = /** @class */ (function () {
     return CoinbaseSocket;
 }());
 exports.CoinbaseSocket = CoinbaseSocket;
-//# sourceMappingURL=coinbaseSocket.js.map
+//# sourceMappingURL=tdaSocket.js.map

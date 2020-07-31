@@ -3,7 +3,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Api = void 0;
 var axios = require('axios');
-var request = require('request');
 var moment = require('moment');
 var WebSocket = require('websocket').w3cwebsocket;
 var Api = /** @class */ (function () {

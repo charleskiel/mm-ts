@@ -1,4 +1,5 @@
 import { Console } from "console";
+import { Account } from "./account";
 
 const fs = require('fs');
 
@@ -53,11 +54,8 @@ export class CoinbaseSocket {
 				case "ticker":
 					//this.cryptoTick(tick);
 					break;
-				case "hearbeat":
-					//this.cryptoTick(tick);
-					break;
 				default:
-					//console.log(tick)
+					console.log(tick)
 					break
 			}
 			

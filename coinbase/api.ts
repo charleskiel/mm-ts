@@ -1,7 +1,6 @@
 //
  
 const axios = require('axios')
-const request = require('request');
 const moment = require('moment');
 const WebSocket = require('websocket').w3cwebsocket;
 

@@ -8,6 +8,6 @@ var moment = require("moment");
 var tda_1 = require("./tda/tda");
 var coinbase_1 = require("./coinbase/coinbase");
 console.log(moment().format());
-console.log(tda_1.TDA.account());
-console.log(coinbase_1.Coinbase.init());
+tda_1.TDA.init();
+coinbase_1.Coinbase.init();
 //# sourceMappingURL=app.js.map
