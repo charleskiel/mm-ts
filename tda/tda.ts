@@ -1,4 +1,4 @@
-import { Api } from './api'
+import { Api } from './tdaapi'
 
 export class TDA {
 	static init() {

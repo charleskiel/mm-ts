@@ -13,7 +13,7 @@ var __assign = (this && this.__assign) || function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Coinbase = void 0;
 var coinbaseSocket_1 = require("./coinbaseSocket");
-var api_1 = require("./api");
+var coinbaseapi_1 = require("./coinbaseapi");
 var Coinbase = /** @class */ (function () {
     function Coinbase() {
     }
@@ -30,7 +30,7 @@ var Coinbase = /** @class */ (function () {
     Coinbase.products = new Map();
     Coinbase.init = function () {
         console.log("Init Coinbase");
-        api_1.Api.products().then(function (products) {
+        coinbaseapi_1.Api.products().then(function (products) {
             //Coinbase.products = products
             for (var index = 0; index < products.length; index++) {
                 var element = products[index];

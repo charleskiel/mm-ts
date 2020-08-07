@@ -1,5 +1,5 @@
 import {CoinbaseSocket} from './coinbaseSocket'
-import {Api} from './api'
+import {Api} from './coinbaseapi'
 import { throws } from 'assert'
 
 
