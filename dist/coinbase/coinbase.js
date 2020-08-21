@@ -40,6 +40,7 @@ var Coinbase = /** @class */ (function () {
             console.log(Coinbase.products);
             coinbaseSocket_1.CoinbaseSocket.connect();
             coinbaseSocket_1.CoinbaseSocket.event.on("*", function (eventData) {
+                console.log(eventData);
                 switch (eventData.type) {
                     case "heartbeat":
                         Coinbase.doHeartbeat(eventData);

@@ -17,7 +17,7 @@ var Api = /** @class */ (function () {
     //let principals = JSON.parse(fs.readFileSync('/var/www/charleskiel.dev/mm-ts/auth/user_principals.json'))
     Api.init = function () {
         console.log("Connecting TDA socket");
-        this.refresh();
+        //this.refresh()
         this.validatetoken();
         this.validateprincipals();
         //this.refreshAccessToken()
@@ -29,12 +29,9 @@ var Api = /** @class */ (function () {
     Api.validatetoken = function () {
         var _this = this;
         var promoise = new Promise(function (resolve, reject) {
-            //console.log(moment(Date.now()).format() + ": Validating Token")
+            console.log(moment(Date.now()).format() + ": Validating Token");
             var access_token = JSON.parse(fs.readFileSync('./auth/access_token.json'));
             var refreshTokenInfo = JSON.parse(fs.readFileSync('./auth/refresh_token.json'));
-            console.log(moment(Date.now()).format() + ": =================================================");
-            //console.log(moment(Date.now()).format() + `: Access code expires ${moment(access_token.created_on + (access_token.expires_in)).fromNow()}`)
-            //console.log(moment(Date.now()).format() + `: Refresh Token updated ${moment(refreshTokenInfo.updated_on).fromNow()}, expires ${moment(refreshTokenInfo.updated_on).add(90, 'days').fromNow()}. No update needed.`)
             if (Date.now() >= access_token.created_on + (access_token.expires_in * 1000)) {
                 console.log(moment(Date.now()).format() + ": Token appears to be expired... Refreshing");
                 _this.refreshAccessToken();
@@ -61,6 +58,7 @@ var Api = /** @class */ (function () {
             axios_1.default.post('https://api.tdameritrade.com/v1/oauth2/token', form, {
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
             }).then(function (response) {
+                console.log(response);
                 console.log(response.data);
                 debugger;
                 result(response.data);

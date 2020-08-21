@@ -42,6 +42,7 @@ export class Coinbase {
 
 			CoinbaseSocket.connect()
 			CoinbaseSocket.event.on("*", function (eventData: any) {
+				//console.log(eventData)
 				switch(eventData.type){
 					case "heartbeat":
 						Coinbase.doHeartbeat(eventData)
@@ -66,14 +67,13 @@ export class Coinbase {
 
 	static doHeartbeat(data : any) {
 		// Coinbase.products[data.product_id] = {...Coinbase.products[data.product_id], ...data}
-		//console.log("heartbeat", data)
-		// console.log("heartbeat", Coinbase.products)
+		console.log("heartbeat", data)
 		
 	}
 
 	static doTicker(data : any) {
 		Coinbase.products.set(data.product_id, {...Coinbase.products.get(data.product_id), ...data})
-		//console.log("ticker", data)
+		console.log("ticker", data)
 		//console.log(Coinbase.products.get(data.product_id))
 		
 	}

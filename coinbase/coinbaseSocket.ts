@@ -22,12 +22,12 @@ export class CoinbaseSocket {
 	static connect() {
 		CoinbaseSocket.socket = new WebSocket("wss://ws-feed.pro.coinbase.com");
 
-		let keys = JSON.parse(fs.readFileSync('/var/www/charleskiel.dev/mm-ts/auth/coinbase.json'))
+		//let keys = JSON.parse(fs.readFileSync('/var/www/charleskiel.dev/mm-ts/auth/coinbase.json'))
 		
 		console.log("Connecting Coinbase socket")
 		this.socket.onopen = (ws: any) => {
 			console.log("Connected");
-			this.socket.send(JSON.stringify(keys));
+			//this.socket.send(JSON.stringify(keys));
 			this.subscribe()
 
 		}
@@ -44,7 +44,7 @@ export class CoinbaseSocket {
 			let tick = JSON.parse(event.data);
 			this.packetCount += 1;
 			this.event.emit(tick.type,tick)
-
+			
 			switch (tick.type) {
 				case "snapshot":
 					//console.log(tick)

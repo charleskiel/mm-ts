@@ -17,11 +17,11 @@ var CoinbaseSocket = /** @class */ (function () {
     CoinbaseSocket.connect = function () {
         var _this = this;
         CoinbaseSocket.socket = new WebSocket("wss://ws-feed.pro.coinbase.com");
-        var keys = JSON.parse(fs.readFileSync('/var/www/charleskiel.dev/mm-ts/auth/coinbase.json'));
+        //let keys = JSON.parse(fs.readFileSync('/var/www/charleskiel.dev/mm-ts/auth/coinbase.json'))
         console.log("Connecting Coinbase socket");
         this.socket.onopen = function (ws) {
             console.log("Connected");
-            _this.socket.send(JSON.stringify(keys));
+            //this.socket.send(JSON.stringify(keys));
             _this.subscribe();
         };
         this.socket.onclose = function (event) {

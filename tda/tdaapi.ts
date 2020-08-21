@@ -14,7 +14,7 @@ export class Api {
 	
 	static init() {
 		console.log("Connecting TDA socket")
-		this.refresh()
+		//this.refresh()
 		this.validatetoken()
 		this.validateprincipals()
 		//this.refreshAccessToken()
@@ -27,15 +27,11 @@ export class Api {
 
 	static validatetoken(){
 		var promoise = new Promise((resolve,reject) => {
-			//console.log(moment(Date.now()).format() + ": Validating Token")
+			console.log(moment(Date.now()).format() + ": Validating Token")
 
 			const access_token = JSON.parse(fs.readFileSync('./auth/access_token.json'))
 			const refreshTokenInfo = JSON.parse(fs.readFileSync('./auth/refresh_token.json'))
-			
-			console.log(moment(Date.now()).format() + ": =================================================")
-			//console.log(moment(Date.now()).format() + `: Access code expires ${moment(access_token.created_on + (access_token.expires_in)).fromNow()}`)
-			//console.log(moment(Date.now()).format() + `: Refresh Token updated ${moment(refreshTokenInfo.updated_on).fromNow()}, expires ${moment(refreshTokenInfo.updated_on).add(90, 'days').fromNow()}. No update needed.`)
-			
+						
 			if (Date.now() >= access_token.created_on + (access_token.expires_in *1000)) {
 			    console.log(moment(Date.now()).format() + ": Token appears to be expired... Refreshing");
 			    this.refreshAccessToken()
@@ -74,7 +70,9 @@ export class Api {
 					headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 				}
 			).then( (response: any ) => {
+				console.log(response)
 				console.log(response.data)
+
 				debugger
 				result(response.data);
 			})
