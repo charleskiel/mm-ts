@@ -1,4 +1,5 @@
 import moment = require('moment');
+import {product, monitor} from './interface';
 //import * as fs from 'fs'
 //import request from 'request'
 //import * as  _ from 'lodash'
@@ -9,3 +10,6 @@ import {Coinbase} from './coinbase/coinbase'
 console.log(moment().format())
 TDA.init()
 Coinbase.init()
+
+let stocks : monitor;
+

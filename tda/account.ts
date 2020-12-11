@@ -1,5 +1,5 @@
 
-import  {product}  from './interface'
+import  {product}  from '../interface'
 import moment = require('moment');
 
 export class Account {
